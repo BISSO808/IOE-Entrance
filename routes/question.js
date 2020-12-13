@@ -6,8 +6,19 @@ const Option = require('../Database/models/Options');
 router.get('/', auth, async (req, res) => {
 	try {
 		let questions = await Question.find({});
-		return questions;
+		res.send(questions);
 	} catch (err) {
+		//console.log(err);
+		res.status(500).send('server error');
+	}
+});
+
+router.get('/:subject', auth, async (req, res) => {
+	try {
+		let questions = await Question.find({ subject: req.params.subject });
+		res.send(questions);
+	} catch (err) {
+		//console.log(err);
 		res.status(500).send('server error');
 	}
 });
