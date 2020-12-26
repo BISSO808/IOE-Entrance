@@ -8,7 +8,6 @@ router.get('/', auth, async (req, res) => {
 		let questions = await Question.find({});
 		res.send(questions);
 	} catch (err) {
-		//console.log(err);
 		res.status(500).send('server error');
 	}
 });
@@ -18,7 +17,6 @@ router.get('/:subject', auth, async (req, res) => {
 		let questions = await Question.find({ subject: req.params.subject });
 		res.send(questions);
 	} catch (err) {
-		//console.log(err);
 		res.status(500).send('server error');
 	}
 });

@@ -1,0 +1,7 @@
+{
+  "name": "ioe-entrance",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
