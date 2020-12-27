@@ -2,13 +2,13 @@ import React, { useState} from 'react'
 import { IonCard, IonContent, IonCardHeader, IonText, IonInput, IonItem ,IonCardContent, IonButton, IonCardSubtitle} from '@ionic/react';
 import PropTypes from 'prop-types'
 import './Login.css'
+import {login} from '../action/auth';
 
 const Login=()=> {
-    const [username, setUsername] = useState<string>();
+    const [email, setEmail] = useState<string>();
     const [password, setPassword] = useState<string>();
     const Submit=()=>{
-        console.log(username);
-        console.log(password);
+       login(email, password);
     }
     return (
       <IonContent color="primary">
@@ -21,7 +21,7 @@ const Login=()=> {
             </IonCardHeader>
             <IonCardContent>
                 <IonItem>
-                    <IonInput value={username} placeholder="Username" onIonChange={e => setUsername(e.detail.value!)}></IonInput>
+                    <IonInput value={email} placeholder="Email" onIonChange={e => setEmail(e.detail.value!)}></IonInput>
                 </IonItem>
                 <IonItem>
                     <IonInput value={password} type="password" placeholder="Password" onIonChange={e => setPassword(e.detail.value!)}></IonInput>
