@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { LOGIN_SUCCESS, LOGIN_FAILURE } from './types';
 import { store } from '../store';
+import { setAlert } from './alert';
 
 export async function login(username, password) {
 	const config = {
@@ -18,11 +19,12 @@ export async function login(username, password) {
 			payload: res.data,
 		});
 	} catch (err) {
-		console.log(err);
-		const errors = err.response.data.errors;
+		// console.log(err.response.data.errors);
+		const errors = err.response.data.msg;
+		console.log(err.response.data.msg);
 		if (errors) {
-			// errors.forEach((error) => dispatch(setAlert(error.msg, 'error')));
-			console.log(errors);
+			errors.forEach((error) => setAlert(error.msg, 'error'));
+			//console.log(errors);
 		}
 		store.dispatch({
 			type: LOGIN_FAILURE,
