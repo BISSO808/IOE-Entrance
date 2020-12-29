@@ -1,6 +1,26 @@
-.heading {
+.title {
 	color: #2a9d8f;
-	font-family: 'Redressed', cursive;
+	font-family: 'Audiowide', cursive;
 	font-size: larger;
 	text-align: center;
+}
+.heading {
+	color: #b4c4c2;
+	font-family: 'Roboto Slab', serif;
+	font-size: larger;
+}
+.card {
+	border-radius: 15px;
+	padding-top: 50px;
+}
+.input {
+	border-radius: 8px;
+	border-style: groove;
+}
+.button {
+	align-items: center;
+}
+
+.bottom {
+	padding-top: 15px;
 }

@@ -11,7 +11,6 @@ export async function login(username, password) {
 	};
 	const email = username;
 	const body = { email, password };
-	console.log(body);
 	try {
 		const res = await axios.post('/auth', body, config);
 		store.dispatch({
@@ -21,9 +20,9 @@ export async function login(username, password) {
 	} catch (err) {
 		// console.log(err.response.data.errors);
 		const errors = err.response.data.msg;
-		console.log(err.response.data.msg);
+		console.log(err.response);
 		if (errors) {
-			errors.forEach((error) => setAlert(error.msg, 'error'));
+			errors.forEach((error) => setAlert(error.msg, 'danger'));
 			//console.log(errors);
 		}
 		store.dispatch({

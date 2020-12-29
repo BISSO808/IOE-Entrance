@@ -8,7 +8,6 @@ const persistConfig = {
 	storage,
 	whitelist: [
 		'auth',
-		'alert'
 	],
 };
 
