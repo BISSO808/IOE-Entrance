@@ -1,0 +1,13 @@
+.title {
+	color: #2a9d8f;
+	font-family: 'Audiowide', cursive;
+	font-size: larger;
+	text-align: center;
+}
+.info {
+	font-family: 'Roboto Condensed', sans-serif;
+	text-align: center;
+}
+.button {
+	text-align: center;
+}

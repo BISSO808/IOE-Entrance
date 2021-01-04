@@ -9,6 +9,7 @@ export default function (state = initialState, action) {
 	const { type, payload } = action;
 	switch (type) {
 		case LOGIN_SUCCESS:
+			localStorage.setItem('token', payload.token);
 			return {
 				...state,
 				token: payload.token,
@@ -16,6 +17,7 @@ export default function (state = initialState, action) {
 				loading: false,
 			};
 		case LOGIN_FAILURE:
+			localStorage.removeItem('token');
 			return {
 				state: undefined,
 			};

@@ -2,7 +2,8 @@
 	--ion-background-color: #2a9d8f;
 	box-shadow: none;
 }
-.cardtext {
+.text {
 	font-family: 'Roboto Condensed', sans-serif;
-	color: #2a9d8f;
+	color: #ffffff;
+	text-decoration: none;
 }

@@ -20,8 +20,8 @@ router.get('/', auth, async (req, res) => {
 router.post(
 	'/',
 	[
-		check('email', 'Email is required'),
-		check('password', 'password is required'),
+		check('email', 'Email is required').not().isEmpty(),
+		check('password', 'password is required').not().isEmpty(),
 	],
 	async (req, res) => {
 		const errors = validationResult(req);
@@ -47,10 +47,12 @@ router.post(
 					}
 				);
 			} else {
-				return res.status(400).json({ msg: 'Invalid username' });
+				const errors = [{ msg: 'Invalid username' }];
+				res.status(400).json({ msg: errors });
 			}
 		} else {
-			return res.status(400).json({ errors: errors.array() });
+			console.log(errors);
+			res.status(400).json({ msg: errors.array() });
 		}
 	}
 );

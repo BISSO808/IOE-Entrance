@@ -2,17 +2,20 @@ import React, { useState} from 'react'
 import { connect } from 'react-redux';
 import { IonCard, IonContent, IonCardHeader, IonText,IonIcon, IonInput, IonItem ,IonCardContent, IonButton, IonCardSubtitle} from '@ionic/react';
 import PropTypes from 'prop-types'
+import {Redirect} from "react-router-dom";
 import { logoFacebook, logoGoogle } from 'ionicons/icons';
 import './Login.css'
 import {login} from '../action/auth';
 import Alert from '../components/Alert';
 
 const Login=(props:any)=> {
-    console.log(props.alert)
     const [email, setEmail] = useState<string>();
     const [password, setPassword] = useState<string>();
     const Submit=()=>{
        login(email, password);
+    }
+    if(props.isAutheticated){
+        return <Redirect to="/tab2"></Redirect>
     }
     return (
         <IonContent color="primary">
@@ -37,11 +40,11 @@ const Login=(props:any)=> {
                     </IonItem>
                     <div className="bottom"></div>
                     <IonButton className="button" shape="round" color="secondary" onClick={Submit}>Log in</IonButton>
-                    <IonButton>
+                    <IonButton className="facebook">
                         Log in with facebook<IonIcon icon={logoFacebook} slot="start"></IonIcon>
                     </IonButton>
                     <br/>
-                    <IonButton>
+                    <IonButton className="bottom">
                         Log in with Gmail<IonIcon icon={logoGoogle} slot="start"></IonIcon>
                     </IonButton>
                 </IonCardContent>
@@ -51,7 +54,8 @@ const Login=(props:any)=> {
 }
 
 const mapStateToProps=(state:any)=> ({
-alert:state.alert
+alert:state.alert,
+isAutheticated:state.auth.isAuthenticated
 })
 
 Login.propTypes = {
