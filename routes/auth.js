@@ -8,9 +8,7 @@ const JWT = require('jsonwebtoken');
 const secret = process.env.SECRET;
 router.get('/', auth, async (req, res) => {
 	try {
-		console.log(res.user.id);
 		const user = await User.findById(res.user.id).select('-password');
-
 		res.json(user);
 	} catch (err) {
 		res.status(500).send('server error');
@@ -42,7 +40,8 @@ router.post(
 							const token = JWT.sign(payload, secret, { expiresIn: 36000 });
 							res.json({ token });
 						} else {
-							res.status(400).json({ msg: 'Incorrect password' });
+							const errors = [{ msg: 'Wrong password' }];
+							res.status(400).json({ msg: errors });
 						}
 					}
 				);

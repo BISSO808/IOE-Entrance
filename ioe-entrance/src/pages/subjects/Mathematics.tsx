@@ -4,17 +4,17 @@ import {} from '@ionic/react'
 import {getQuestionBySubject} from '../../action/question'
 const Mathematics=(props:any)=> {
     useEffect(() => {
-    console.log(props.match.path.substring(1));
     getQuestionBySubject(props.match.path.substring(1));
       },[]);
-    return (
+      return props.loading ? (
         <div>
-            <h1>Mathematics</h1>
-        </div>
-    )
+            <h1>loading</h1>
+        </div> ): (<div><h1>hey</h1></div>
+    );
 }
 
 const mapStateToProps=(state:any)=> ({
+loading:state.question.loading
 
     })
 export default connect(mapStateToProps,{getQuestionBySubject})(Mathematics)
