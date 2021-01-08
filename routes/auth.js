@@ -26,6 +26,7 @@ router.post(
 
 		if (errors.isEmpty()) {
 			let user = await User.findOne({ email: req.body.email });
+			console.log(user)
 			if (user) {
 				await bcrypt.compare(
 					req.body.password,

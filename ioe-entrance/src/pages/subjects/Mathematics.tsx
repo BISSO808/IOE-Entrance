@@ -1,7 +1,8 @@
 import React,{useEffect} from 'react'
 import { connect } from 'react-redux';
-import {} from '@ionic/react'
+import { IonContent } from '@ionic/react'
 import {getQuestionBySubject} from '../../action/question'
+import Details from '../board/Details'
 const Mathematics=(props:any)=> {
     useEffect(() => {
     getQuestionBySubject(props.match.path.substring(1));
@@ -9,7 +10,10 @@ const Mathematics=(props:any)=> {
       return props.loading ? (
         <div>
             <h1>loading</h1>
-        </div> ): (<div><h1>hey</h1></div>
+        </div> ): (
+        <IonContent>
+            <Details subject= {props.match.path.substring(1)}/>
+        </IonContent>
     );
 }
 

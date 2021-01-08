@@ -1,5 +1,5 @@
 import React ,{useState}from 'react';
-import {IonPage, IonImg, IonContent, IonCardHeader, IonText,IonIcon, IonInput, IonItem ,IonCardContent, IonButton, IonCardSubtitle} from '@ionic/react';
+import {IonPage, IonImg, IonContent, IonGrid, IonCol, IonRow, IonText,IonIcon, IonInput, IonItem ,IonCardContent, IonButton, IonCardSubtitle} from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import './Tab1.css';
 
@@ -14,7 +14,12 @@ const Tab1: React.FC = () => {
       <IonText className="info">
         <p>This is a collection of questions for you to ace the IOE Entrance exam.</p>
       </IonText>
-      <div className="button"><IonButton className="button" href="login">Login</IonButton></div>
+      <IonGrid>
+      <IonRow>
+        <IonCol><div className="button"><IonButton className="button" href="login">Login</IonButton></div></IonCol>
+        <IonCol><div className="button"><IonButton className="button" href="#">SignUp</IonButton></div></IonCol>
+      </IonRow>
+      </IonGrid>
       </IonContent>
     </IonPage>
   );
