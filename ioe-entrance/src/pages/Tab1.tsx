@@ -1,6 +1,5 @@
-import React ,{useState}from 'react';
-import {IonPage, IonImg, IonContent, IonGrid, IonCol, IonRow, IonText,IonIcon, IonInput, IonItem ,IonCardContent, IonButton, IonCardSubtitle} from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import React from 'react';
+import {IonPage, IonImg, IonContent, IonGrid, IonCol, IonRow, IonText, IonButton} from '@ionic/react';
 import './Tab1.css';
 
 const Tab1: React.FC = () => {

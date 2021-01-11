@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Route } from 'react-router-dom';
 import {
-    IonApp,
     IonIcon,
     IonLabel,
     IonRouterOutlet,
@@ -10,14 +9,16 @@ import {
     IonTabButton,
     IonTabs
   } from '@ionic/react';
-  import { ellipse, square, triangle } from 'ionicons/icons';
-  import Tab1 from '../pages/Tab1';
+import { ellipse, square, triangle } from 'ionicons/icons';
+import Tab1 from '../pages/Tab1';
 import Tab2 from '../pages/Tab2';
 import Tab3 from '../pages/Tab3';
 import Login from '../pages/Login';
-import Mathematics from '../pages/subjects/Mathematics'
+import Mathematics from '../pages/subjects/Mathematics';
+import Physics from '../pages/subjects/Physics';
+import Chemistry from '../pages/subjects/Chemistry';
+import English from '../pages/subjects/English';
 const Tabs=(props:any)=>{ 
-    console.log(props);
     return (  
   <IonTabs>
     <IonRouterOutlet>
@@ -25,6 +26,9 @@ const Tabs=(props:any)=>{
       <Route path="/tab2" component={Tab2} exact={true} />
       <Route path="/tab2" component={Tab2} exact={true} />
       <Route path="/Mathematics" component={Mathematics} exact={true} />
+      <Route path="/Physics" component={Physics} exact={true} />
+      <Route path="/English" component={English} exact={true} />
+      <Route path="/Chemistry" component={Chemistry} exact={true} />
       <Route path="/login" component={Login} />
       <Route path="/" render={() => <Redirect to="/tab1" />} exact={true} />
     </IonRouterOutlet>

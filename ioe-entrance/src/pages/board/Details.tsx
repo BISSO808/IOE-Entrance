@@ -1,19 +1,30 @@
-import React,{useEffect} from 'react'
+import React from 'react'
 import { connect } from 'react-redux';
-import { IonContent, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonButton } from '@ionic/react'
+import { IonItem, IonLabel, IonText, IonCard, IonCardHeader, IonCardTitle, IonCardContent} from '@ionic/react'
 const Details=(props:any)=> {
+  const myArray:any = {Mathematics: "50"}
+  const index = props.subject;
   return (
+    <div>
     <IonCard>
     <IonCardHeader>
       <IonCardTitle>{props.subject}</IonCardTitle>
     </IonCardHeader>
     <IonCardContent>
-      Keep close to Nature's heart... and break clear away, once in awhile,
-      and climb a mountain or spend a week in the woods. Wash your spirit clean.
+      Content Weight : {myArray[index]}
     </IonCardContent>
-    <IonButton>Study</IonButton>
-    <IonButton>Test</IonButton>
   </IonCard>
+   <IonCard className="maincard">
+   <IonItem>
+     <IonLabel><IonText className="text">Learn</IonText></IonLabel>
+   </IonItem>
+ </IonCard>
+ <IonCard className="maincard">
+   <IonItem>
+     <IonLabel><IonText className="text">Test</IonText></IonLabel>
+   </IonItem>
+ </IonCard>
+ </div>
   )
 }
 

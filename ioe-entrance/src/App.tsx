@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider }  from 'react-redux'
 import {store} from './store';
 import {
-  IonApp,
+  IonApp, IonContent,
 } from '@ionic/react';
 import Tabs from './components/Tabs'
 import { IonReactRouter } from '@ionic/react-router';
@@ -32,9 +32,11 @@ if (localStorage.token) {
 const App: React.FC = () => (
   <Provider store={store}>
   <IonApp>
+    <IonContent>
     <IonReactRouter>
       <Tabs />
     </IonReactRouter>
+    </IonContent>
   </IonApp>
 </Provider>
 );

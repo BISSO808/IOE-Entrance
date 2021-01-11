@@ -1,7 +1,6 @@
 import React, { useState} from 'react'
 import { connect } from 'react-redux';
 import { IonCard, IonContent, IonCardHeader, IonText,IonIcon, IonInput, IonItem ,IonCardContent, IonButton, IonCardSubtitle} from '@ionic/react';
-import PropTypes from 'prop-types'
 import {Redirect} from "react-router-dom";
 import { logoFacebook, logoGoogle } from 'ionicons/icons';
 import './Login.css'

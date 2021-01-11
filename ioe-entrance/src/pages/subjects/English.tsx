@@ -3,21 +3,18 @@ import { connect } from 'react-redux';
 import { IonContent } from '@ionic/react'
 import {getQuestionBySubject} from '../../action/question'
 import Details from '../board/Details'
-const Mathematics=(props:any)=> {
+const English=(props:any)=> {
     useEffect(() => {
-    getQuestionBySubject(props.match.path.substring(1));
+    // getQuestionBySubject(props.match.path.substring(1));
       },[]);
-      return props.loading ? (
-        <div>
-            <h1>loading</h1>
-        </div> ): (
+      return (
         <IonContent>
             <Details subject= {props.match.path.substring(1)}/>
         </IonContent>
     );
 }
+
 const mapStateToProps=(state:any)=> ({
 loading:state.question.loading
-
     })
-export default connect(mapStateToProps,{getQuestionBySubject})(Mathematics)
+export default connect(mapStateToProps,{getQuestionBySubject})(English)
