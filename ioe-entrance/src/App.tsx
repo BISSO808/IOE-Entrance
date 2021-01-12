@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Provider }  from 'react-redux'
 import {store} from './store';
 import {
@@ -23,13 +23,17 @@ import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
-
+import {loadUser} from './action/user';
 /* Theme variables */
 import './theme/variables.css';
 if (localStorage.token) {
 	setAuthToken(localStorage.token);
 }
-const App: React.FC = () => (
+const App= () => {
+  useEffect(() => {
+   store.dispatch(loadUser());
+    }, []);
+  return (
   <Provider store={store}>
   <IonApp>
     <IonContent>
@@ -39,6 +43,7 @@ const App: React.FC = () => (
     </IonContent>
   </IonApp>
 </Provider>
-);
+  )
+  };
 
 export default App;

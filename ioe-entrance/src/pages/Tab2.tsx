@@ -4,7 +4,7 @@ import { IonContent,IonText, IonPage, IonGrid,IonRow, IonCol,IonAvatar} from '@i
 import Subjects from './dashboard/Subjects'
 import './Tab2.css';
 
-const Tab2: React.FC = () => {
+const Tab2 = (props:any) => {
   const subjects = ['Mathematics', 'Physics', 'Chemistry', 'English'];
   return (
     <IonPage>
@@ -12,9 +12,8 @@ const Tab2: React.FC = () => {
       <IonGrid>
         <IonRow>
           <IonCol>
-      <IonText className="cardtext">Hello, Bishwa</IonText>
+      <IonText className="cardtext">Hello, {props.name}</IonText>
     </IonCol>
-    <IonCol></IonCol>
     <IonCol>
     <IonAvatar>
     <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y" />
@@ -29,7 +28,7 @@ const Tab2: React.FC = () => {
 };
 
 const mapStateToProps=(state:any)=>({
-name: state.auth.name
+name: state.user.user.name
 })
 
 export default connect(mapStateToProps, {})(Tab2);
