@@ -5,7 +5,7 @@ import {getQuestionBySubject} from '../../action/question'
 import Details from '../board/Details'
 const Physics=(props:any)=> {
     useEffect(() => {
-    // getQuestionBySubject(props.match.path.substring(1));
+    getQuestionBySubject(props.match.path.substring(1));
       },[]);
       return (
         <IonContent>

@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import { IonItem, IonLabel, IonText, IonCard, IonCardHeader, IonCardTitle, IonCardContent} from '@ionic/react'
 const Details=(props:any)=> {
-  const myArray:any = {Mathematics: "50"}
+  const myArray:any = {Mathematics: "50", Physics: "45", Chemistry: "25", English: "20"};
   const index = props.subject;
   return (
     <div>
@@ -14,12 +14,12 @@ const Details=(props:any)=> {
       Content Weight : {myArray[index]}
     </IonCardContent>
   </IonCard>
-   <IonCard className="maincard">
+   <IonCard className="maincard" href='learn'>
    <IonItem>
      <IonLabel><IonText className="text">Learn</IonText></IonLabel>
    </IonItem>
  </IonCard>
- <IonCard className="maincard">
+ <IonCard className="maincard" href="test">
    <IonItem>
      <IonLabel><IonText className="text">Test</IonText></IonLabel>
    </IonItem>

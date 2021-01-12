@@ -1,0 +1,10 @@
+.question {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.answer {
+    font-family: 'Roboto Condensed', sans-serif;
+    color: rgb(53, 94, 129);
+}
+.questioncard {
+    border-radius: 14px;
+}

@@ -18,6 +18,7 @@ import Mathematics from '../pages/subjects/Mathematics';
 import Physics from '../pages/subjects/Physics';
 import Chemistry from '../pages/subjects/Chemistry';
 import English from '../pages/subjects/English';
+import Learn from '../pages/menu/Learn'
 const Tabs=(props:any)=>{ 
     return (  
   <IonTabs>
@@ -29,6 +30,7 @@ const Tabs=(props:any)=>{
       <Route path="/Physics" component={Physics} exact={true} />
       <Route path="/English" component={English} exact={true} />
       <Route path="/Chemistry" component={Chemistry} exact={true} />
+      <Route path="/learn" component={Learn} exact={true} />
       <Route path="/login" component={Login} />
       <Route path="/" render={() => <Redirect to="/tab1" />} exact={true} />
     </IonRouterOutlet>
