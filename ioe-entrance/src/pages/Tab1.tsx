@@ -16,7 +16,7 @@ const Tab1: React.FC = () => {
       <IonGrid>
       <IonRow>
         <IonCol><div className="button"><IonButton className="button" href="login">Login</IonButton></div></IonCol>
-        <IonCol><div className="button"><IonButton className="button" href="#">SignUp</IonButton></div></IonCol>
+        <IonCol><div className="button"><IonButton className="button" href="signup">SignUp</IonButton></div></IonCol>
       </IonRow>
       </IonGrid>
       </IonContent>
