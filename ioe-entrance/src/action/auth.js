@@ -1,5 +1,10 @@
 import axios from 'axios';
-import { LOGIN_SUCCESS, LOGIN_FAILURE, SIGNUP_SUCCESS, SIGNUP_FAILURE } from './types';
+import {
+	LOGIN_SUCCESS,
+	LOGIN_FAILURE,
+	SIGNUP_SUCCESS,
+	SIGNUP_FAILURE,
+} from './types';
 import { store } from '../store';
 import { setAlert } from './alert';
 
@@ -18,6 +23,7 @@ export async function login(username, password) {
 			payload: res.data,
 		});
 	} catch (err) {
+		console.log(err);
 		// console.log(err.response.data.errors);
 		const errors = err.response.data.msg;
 		console.log(err.response);

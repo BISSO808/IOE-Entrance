@@ -9,6 +9,7 @@ const secret = process.env.SECRET;
 router.get('/', auth, async (req, res) => {
 	try {
 		const user = await User.findById(res.user.id).select('-password');
+		console.log(user);
 		res.json(user);
 	} catch (err) {
 		res.status(500).send('server error');
@@ -26,7 +27,6 @@ router.post(
 
 		if (errors.isEmpty()) {
 			let user = await User.findOne({ email: req.body.email });
-			console.log(user)
 			if (user) {
 				await bcrypt.compare(
 					req.body.password,
@@ -39,6 +39,7 @@ router.post(
 								},
 							};
 							const token = JWT.sign(payload, secret, { expiresIn: 36000 });
+							console.log(token);
 							res.json({ token });
 						} else {
 							const errors = [{ msg: 'Wrong password' }];

@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {useEffect } from 'react';
 import { connect } from 'react-redux';
+import {loadUser} from '../action/user';
+import {store} from  '../store'
 import { Redirect, Route } from 'react-router-dom';
 import {
     IonIcon,
@@ -7,7 +9,8 @@ import {
     IonRouterOutlet,
     IonTabBar,
     IonTabButton,
-    IonTabs
+    IonTabs,
+    useIonViewDidEnter
   } from '@ionic/react';
 import { ellipse, square, triangle } from 'ionicons/icons';
 import Tab1 from '../pages/Tab1';
@@ -21,7 +24,11 @@ import English from '../pages/subjects/English';
 import Learn from '../pages/menu/Learn'
 import Signup from '../pages/Signup';
 const Tabs=(props:any)=>{ 
-    return (  
+  useIonViewDidEnter(() => {
+    console.log("this is fired or noe");
+    props.loadUser();
+     });
+  return (  
   <IonTabs>
     <IonRouterOutlet>
       <Route path="/tab1" component={Tab1} exact={true} />
@@ -62,4 +69,4 @@ const mapStateToProps=(state:any)=> ({
     loading:state.auth.loading
     })
 
-export default connect(mapStateToProps, {})(Tabs);
+export default connect(mapStateToProps, {loadUser})(Tabs);

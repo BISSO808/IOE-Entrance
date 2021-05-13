@@ -5,6 +5,7 @@ import {Redirect} from "react-router-dom";
 import './Signup.css';
 import {signup} from '../action/auth';
 import Alert from '../components/Alert';
+import {setAlert} from '../action/alert';
 
 const Signup=(props:any)=> {
     const [name, setName] = useState<string>();
@@ -12,7 +13,11 @@ const Signup=(props:any)=> {
     const [password, setPassword] = useState<string>();
     const [confirmPassword, setConfirmPassword] = useState<string>();
     const Submit=()=>{
+        if(password=== confirmPassword){
        signup(name, email, password);
+        } else{
+            setAlert("Password doesnot match", 'danger')
+        }
     }
     if(props.isAutheticated){
         return <Redirect to="/login"></Redirect>

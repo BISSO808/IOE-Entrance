@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Provider }  from 'react-redux'
 import {store} from './store';
 import {
-  IonApp, IonContent,
+  IonApp, IonContent,useIonViewWillEnter
 } from '@ionic/react';
 import Tabs from './components/Tabs'
 import { IonReactRouter } from '@ionic/react-router';
@@ -32,7 +32,7 @@ if (localStorage.token) {
 const App= () => {
   useEffect(() => {
    store.dispatch(loadUser());
-    }, []);
+    });
   return (
   <Provider store={store}>
   <IonApp>
